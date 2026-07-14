@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网页 AI 助手</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <div>
+          <h1>网页 AI 助手</h1>
+          <p id="page-name">正在连接当前网页…</p>
+        </div>
+        <button id="settings-toggle" class="icon-button" title="API 设置" aria-label="API 设置">⚙</button>
+      </header>
+
+      <section id="settings" class="settings" hidden>
+        <label>API Key<input id="api-key" type="password" placeholder="粘贴你的 DeepSeek API Key"></label>
+        <label>接口地址<input id="api-url" type="url" value="https://api.deepseek.com/chat/completions"></label>
+        <label>模型<input id="model" type="text" value="deepseek-chat"></label>
+        <button id="save-settings" class="secondary">保存设置</button>
+        <p class="settings-note">密钥只保存在此浏览器的本地扩展存储中，不会写入项目代码。</p>
+      </section>
+
+      <section class="actions" aria-label="操作">
+        <button id="summarize">Summarize</button>
+        <div class="translate-row">
+          <button id="translate">Translate</button>
+          <input id="target-language" value="中文" aria-label="目标语言" title="目标语言">
+        </div>
+        <button id="save-local" class="secondary" disabled>Save Local</button>
+        <button id="terminate" class="danger" disabled>Terminate</button>
+        <button id="no-local" class="ghost" disabled>No Local</button>
+      </section>
+
+      <p id="status" role="status">准备就绪。</p>
+      <section id="result" hidden>
+        <div class="meta">
+          <h2 id="result-title"></h2>
+          <a id="result-url" target="_blank" rel="noreferrer"></a>
+          <time id="result-time"></time>
+        </div>
+        <article id="result-content"></article>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

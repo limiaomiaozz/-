@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "网页 AI 助手",
+  "version": "0.1.0",
+  "description": "总结、翻译当前网页，并保存为 Markdown 文件。",
+  "permissions": ["activeTab", "scripting", "storage", "downloads", "windows"],
+  "host_permissions": ["https://api.deepseek.com/*", "https://api.openai.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "网页 AI 助手"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

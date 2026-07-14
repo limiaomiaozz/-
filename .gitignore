@@ -1,0 +1,29 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+
+# Dependencies and build outputs
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+
+# Local extension and application settings
+config.local.*
+*.local.json
+
+# Editor and operating-system temporary files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
